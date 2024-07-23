@@ -1,5 +1,6 @@
 package ru.gb.vending_machine.family_tree;
 
+import java.util.List;
 
 class GenealogyTree {
     private Person root;

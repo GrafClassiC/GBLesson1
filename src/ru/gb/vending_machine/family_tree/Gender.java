@@ -1,3 +1,5 @@
+package ru.gb.vending_machine.family_tree;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
