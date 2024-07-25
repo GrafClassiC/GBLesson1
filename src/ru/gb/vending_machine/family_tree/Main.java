@@ -1,7 +1,6 @@
 package ru.gb.vending_machine.family_tree;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,10 +17,11 @@ public class Main {
         tree.addPerson(jane);
         tree.addPerson(alice);
 
-        List<Person> aliceChildren = tree.findPersonByName("Alice").getChildren();
-        List<Person> johnChildren = tree.findPersonByName("John").getChildren();
-        List<Person> janeChildren = tree.findPersonByName("Jane").getChildren();
+        tree.saveToFile("family_tree.dat");
 
-        System.out.println(tree);
+        // Загружаем данные из файла
+        FamilyTree loadedTree = new FamilyTree();
+        loadedTree.loadFromFile("family_tree.dat");
+        System.out.println(loadedTree);
     }
 }

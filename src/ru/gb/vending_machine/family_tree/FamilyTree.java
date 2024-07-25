@@ -5,9 +5,11 @@ import java.util.Map;
 
 class FamilyTree {
     private Map<String, Person> people;
+    private FileIOInterface fileIO;
 
     public FamilyTree() {
         this.people = new HashMap<>();
+        this.fileIO = new FileIO();
     }
 
     public void addPerson(Person person) {
@@ -20,6 +22,19 @@ class FamilyTree {
 
     public Map<String, Person> getPeople() {
         return people;
+    }
+
+    public void saveToFile(String fileName) {
+        fileIO.writeToFile(fileName, new ArrayList<>(people.values()));
+    }
+
+    public void loadFromFile(String fileName) {
+        List<Person> personsFromFile = fileIO.readFromFile(fileName);
+        if (personsFromFile != null) {
+            for (Person person : personsFromFile) {
+                addPerson(person);
+            }
+        }
     }
 
     @Override
